@@ -4,6 +4,7 @@ import (
 	"clean-code/app/middlewares"
 	"clean-code/routes"
 	"log"
+	"os"
 
 	_userUseCase "clean-code/businesses/users"
 	_userController "clean-code/controllers/users"
@@ -16,16 +17,16 @@ import (
 
 func main() {
 	configDB := mysql.ConfigDB{
-		DB_USERNAME: util.GetConfig("DB_USERNAME"),
-		DB_PASSWORD: util.GetConfig("DB_PASSWORD"),
-		DB_HOST:     util.GetConfig("cwe1u6tjijexv3r6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"),
-		DB_PORT:     util.GetConfig("DB_PORT"),
-		DB_NAME:     util.GetConfig("DB_NAME"),
-		// DB_USERNAME: os.Getenv("DB_USERNAME"),
-		// DB_PASSWORD: os.Getenv("DB_PASSWORD"),
-		// DB_HOST:     os.Getenv("DB_HOST"),
-		// DB_PORT:     os.Getenv("DB_PORT"),
-		// DB_NAME:     os.Getenv("DB_NAME"),
+		// DB_USERNAME: util.GetConfig("DB_USERNAME"),
+		// DB_PASSWORD: util.GetConfig("DB_PASSWORD"),
+		// DB_HOST:     util.GetConfig("DB_HOST"),
+		// DB_PORT:     util.GetConfig("DB_PORT"),
+		// DB_NAME:     util.GetConfig("DB_NAME"),
+		DB_USERNAME: os.Getenv("DB_USERNAME"),
+		DB_PASSWORD: os.Getenv("DB_PASSWORD"),
+		DB_HOST:     os.Getenv("DB_HOST"),
+		DB_PORT:     os.Getenv("DB_PORT"),
+		DB_NAME:     os.Getenv("DB_NAME"),
 	}
 
 	db := configDB.InitDB()
