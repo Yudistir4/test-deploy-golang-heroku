@@ -33,7 +33,7 @@ func main() {
 	mysql.DBMigrate(db)
 
 	configJWT := middlewares.ConfigJwt{
-		// SecretJWT:       util.GetConfig("JWT_SECRET_KEY"),
+		//  SecretJWT:       util.GetConfig("JWT_SECRET_KEY"),
 		SecretJWT:       os.Getenv("JWT_SECRET_KEY"),
 		ExpiresDuration: 1,
 	}
