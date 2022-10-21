@@ -10,7 +10,6 @@ import (
 	_userController "clean-code/controllers/users"
 	"clean-code/drivers"
 	"clean-code/drivers/mysql"
-	"clean-code/util"
 
 	"github.com/labstack/echo/v4"
 )
@@ -34,7 +33,8 @@ func main() {
 	mysql.DBMigrate(db)
 
 	configJWT := middlewares.ConfigJwt{
-		SecretJWT:       util.GetConfig("JWT_SECRET_KEY"),
+		// SecretJWT:       util.GetConfig("JWT_SECRET_KEY"),
+		SecretJWT:       os.Getenv("JWT_SECRET_KEY"),
 		ExpiresDuration: 1,
 	}
 
