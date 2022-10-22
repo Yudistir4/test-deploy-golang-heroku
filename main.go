@@ -3,6 +3,7 @@ package main
 import (
 	"clean-code/app/middlewares"
 	"clean-code/routes"
+	"fmt"
 	"log"
 	"os"
 
@@ -50,6 +51,6 @@ func main() {
 	}
 
 	routesInit.RouteRegister(e)
-
-	log.Fatal(e.Start(":8000"))
+	var port string = fmt.Sprintf(":%s", os.Getenv("PORT"))
+	log.Fatal(e.Start(port))
 }
